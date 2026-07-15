@@ -128,6 +128,34 @@ export const en: SiteContent = siteContentSchema.parse({
       ],
     },
     {
+      id: 'iot-cold-chain',
+      kicker: 'IoT end-to-end',
+      title: 'Cold-chain monitoring: from probe supplier to production pod',
+      context:
+        'Food-safety compliance requires continuous temperature monitoring of fridges and cold rooms in every store. I conceived the company\u2019s IoT solution and owned the whole chain — including choosing the physical probe and its supplier, and installing the hardware on site.',
+      problem:
+        'Manual temperature logging is error-prone, does not satisfy auditors, and off-the-shelf IoT platforms were expensive, inflexible and impossible to integrate with the HACCP suite.',
+      approach: [
+        'Scouted and selected the temperature probe and the hardware supplier: evaluation of cost, reliability and fit with the compliance requirements.',
+        'Designed the device management flow in the Java backend: device registration, auto-assignment to the responsible department, client-side grants, mock mode for development.',
+        'Compliance logic on top of the readings: thresholds, alerts and non-conformity records that feed the existing HACCP flows.',
+        'Shipped as the iot-compliance release on EKS, observable via OpenTelemetry like every other service.',
+        'Installed and commissioned the probes physically on site in the stores.',
+      ],
+      impact: [
+        'Continuous, automated cold-chain monitoring instead of manual logs.',
+        'Auditor-ready temperature records with alerting on threshold violations.',
+        'One person covered the entire chain: hardware sourcing \u2192 backend \u2192 Kubernetes release \u2192 field installation.',
+      ],
+      stack: [
+        'IoT temperature probes',
+        'Java / Spring Boot',
+        'PostgreSQL',
+        'EKS (iot-compliance)',
+        'OpenTelemetry + SigNoz',
+      ],
+    },
+    {
       id: 'platform-ownership',
       kicker: 'Platform ownership',
       title: 'The AWS platform every product deploys on',
@@ -310,6 +338,7 @@ export const en: SiteContent = siteContentSchema.parse({
         'Not a certification collector: roles I held because the product needed them.',
       items: [
         'Product Owner (company-wide stint) \u2014 coordinated a 10+ person team: assigned work, set priorities, kept shipping code on shared projects',
+        'Hardware sourcing \u2014 scouted the temperature probe and supplier for the company IoT solution, then installed it on site',
         'Ran BS-Conad completely solo for a year \u2014 product + engineering, 650 stores, ~\u20AC300k/yr revenue',
         'Scrum Master (current) \u2014 facilitation without slowing engineers down',
         'Stakeholder management with enterprise retail clients (GDO)',

@@ -128,6 +128,34 @@ export const it: SiteContent = siteContentSchema.parse({
       ],
     },
     {
+      id: 'iot-cold-chain',
+      kicker: 'IoT end-to-end',
+      title: 'Monitoraggio catena del freddo: dalla scelta della sonda al pod in produzione',
+      context:
+        'La compliance alimentare richiede il monitoraggio continuo delle temperature di frigoriferi e celle in ogni punto vendita. Ho ideato la soluzione IoT aziendale e gestito l\u2019intera catena — inclusa la scelta della sonda fisica e del fornitore, fino all\u2019installazione dell\u2019hardware in loco.',
+      problem:
+        'La registrazione manuale delle temperature è soggetta a errori e non soddisfa gli auditor; le piattaforme IoT off-the-shelf erano costose, rigide e impossibili da integrare con la suite HACCP.',
+      approach: [
+        'Scouting e selezione della sonda di temperatura e del fornitore hardware: valutazione di costi, affidabilità e aderenza ai requisiti di compliance.',
+        'Progettato il flusso di device management nel backend Java: registrazione dispositivi, auto-assegnazione al reparto responsabile, grant client-side, mock mode per lo sviluppo.',
+        'Logica di compliance sopra le letture: soglie, alert e registrazioni di non conformità che alimentano i flussi HACCP esistenti.',
+        'Rilasciato come release iot-compliance su EKS, osservabile via OpenTelemetry come ogni altro servizio.',
+        'Sonde installate e messe in servizio fisicamente in loco nei punti vendita.',
+      ],
+      impact: [
+        'Monitoraggio continuo e automatico della catena del freddo al posto dei registri manuali.',
+        'Registrazioni di temperatura pronte per gli audit, con alert sulle violazioni di soglia.',
+        'Una sola persona ha coperto l\u2019intera catena: sourcing hardware \u2192 backend \u2192 release Kubernetes \u2192 installazione sul campo.',
+      ],
+      stack: [
+        'Sonde di temperatura IoT',
+        'Java / Spring Boot',
+        'PostgreSQL',
+        'EKS (iot-compliance)',
+        'OpenTelemetry + SigNoz',
+      ],
+    },
+    {
       id: 'platform-ownership',
       kicker: 'Ownership della piattaforma',
       title: 'La piattaforma AWS su cui deploya ogni prodotto',
@@ -309,6 +337,7 @@ export const it: SiteContent = siteContentSchema.parse({
         'Non colleziono certificazioni: ruoli che ho coperto perché il prodotto ne aveva bisogno.',
       items: [
         'Product Owner (parentesi a livello azienda) \u2014 coordinato un team di 10+ persone: assegnazione attività, priorità, continuando a sviluppare sui progetti comuni',
+        'Hardware sourcing \u2014 scelta della sonda di temperatura e del fornitore per la soluzione IoT aziendale, installata poi in loco',
         'BS-Conad gestito in completa autonomia per un anno \u2014 prodotto + sviluppo, 650 punti vendita, ~300k\u20AC/anno di fatturato',
         'Scrum Master (attuale) \u2014 facilitazione senza rallentare chi sviluppa',
         'Gestione stakeholder con clienti enterprise retail (GDO)',

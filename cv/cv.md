@@ -61,6 +61,10 @@ Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, au
 - Piattaforma di audit interno con workflow ticket (`OPEN → SUBMITTED → VALIDATED → CLOSED`), task correttivi con scadenze, allegati, notifiche automatiche, ruoli L1/L2/L3.
 - Stack: **Vite + React + TS + Tailwind + TanStack Query** (FE), **Next.js API Routes + Prisma + SQLite/Postgres + Zod** (BE) in monorepo pnpm.
 
+#### IoT Cold-chain (BS-IOT-COMPLIANCE)
+
+- **Ideata e realizzata end-to-end la soluzione IoT aziendale** per il monitoraggio temperature di frigoriferi e celle: **scouting e selezione della sonda e del fornitore hardware**, flusso di device management nel backend Java (registrazione, auto-assegnazione al reparto, grant client-side, mock per dev), logica di compliance (soglie, alert, non conformità nei flussi HACCP), release `iot-compliance` su EKS — fino all'**installazione fisica delle sonde in loco** nei punti vendita.
+
 #### Copilot AI (BS-COPILOT)
 
 - Microservizio **Spring Boot 3.4 + Java 17** + frontend **Next.js 15 + AI SDK + assistant-ui + OpenAI** per un assistant integrato nei prodotti.
@@ -180,6 +184,7 @@ Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, au
 
 - Ownership end-to-end: dal Figma al pod in produzione
 - Prodotto & delivery: PO a livello azienda (team 10+ coordinato), Scrum Master attuale, un prodotto da 650 PdV gestito in completa autonomia
+- Oltre il software: soluzione IoT ideata end-to-end, dalla scelta di sonda e fornitore all'installazione fisica in loco
 - Capacità di modernizzare prodotti legacy senza interrompere il business (rewrite Conad backoffice è il case più recente)
 - A mio agio sia in monolite Spring sia in microservizi + microfrontend
 - Code review costruttiva, allergico al "magic code" non motivato
