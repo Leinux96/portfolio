@@ -31,15 +31,22 @@ export default function Hero({ locale }: { locale: Locale }) {
             </a>
           </div>
 
-          <dl className="mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-            {t.hero.stats.map((stat) => (
-              <div key={stat.label} className="card glow-card px-5 py-4">
-                <dt className="order-2 m-0 text-xs leading-snug text-[var(--ink-soft)]">
-                  {stat.label}
-                </dt>
-                <dd className="mono m-0 mb-1 text-3xl font-semibold text-[var(--ink)]">
+          <dl className="mt-12 flex max-w-2xl flex-col gap-x-8 gap-y-3 sm:flex-row sm:items-center">
+            {t.hero.stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={
+                  i > 0
+                    ? 'flex items-baseline gap-2.5 sm:border-l sm:border-[var(--line)] sm:pl-8'
+                    : 'flex items-baseline gap-2.5'
+                }
+              >
+                <dd className="mono m-0 text-2xl font-semibold text-[var(--accent)]">
                   <CountUp value={stat.value} />
                 </dd>
+                <dt className="m-0 max-w-36 text-xs leading-snug text-[var(--ink-soft)]">
+                  {stat.label}
+                </dt>
               </div>
             ))}
           </dl>
