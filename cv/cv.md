@@ -2,7 +2,7 @@
 
 **Senior Fullstack Engineer · Mobile-first (React Native / Expo) + Cloud-native backend**
 
-📧 [leonardo.chiaramonti@biorsaf.it](mailto:leonardo.chiaramonti@biorsaf.it) · [github.com/Leinux96](https://github.com/Leinux96) · [leonardo.is-a.dev](https://leonardo.is-a.dev) · Italia (remoto)
+📧 [leonardo.chiaramonti@biorsaf.it](mailto:leonardo.chiaramonti@biorsaf.it) · [github.com/Leinux96](https://github.com/Leinux96) · [leonardochiaramonti.is-a.dev](https://leonardochiaramonti.is-a.dev) · Italia (remoto)
 
 ---
 
@@ -190,4 +190,4 @@ Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, au
 
 ---
 
-_Versione aggiornata su [leonardo.is-a.dev](https://leonardo.is-a.dev)._
+_Versione aggiornata su [leonardochiaramonti.is-a.dev](https://leonardochiaramonti.is-a.dev)._

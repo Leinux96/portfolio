@@ -1,4 +1,4 @@
-# leonardo.is-a.dev — Portfolio
+# leonardochiaramonti.is-a.dev — Portfolio
 
 Bilingual (EN/IT) portfolio for Leonardo Chiaramonti, Senior Product Engineer.
 Built with the same stack described in the case studies: **TanStack Start + React 19 + TypeScript strict + Tailwind v4**, fully prerendered to static HTML.
@@ -48,4 +48,4 @@ pnpm exec wrangler login   # once
 pnpm deploy
 ```
 
-Custom domain: `leonardo.is-a.dev` via [is-a-dev/register](https://github.com/is-a-dev/register).
+Custom domain: `leonardochiaramonti.is-a.dev` via [is-a-dev/register](https://github.com/is-a-dev/register).
