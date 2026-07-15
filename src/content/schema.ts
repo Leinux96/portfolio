@@ -101,7 +101,7 @@ export const siteContentSchema = z.object({
   }),
   caseStudies: z.array(caseStudySchema).min(1),
   projects: z.array(projectSchema).min(1),
-  skillAxes: z.array(skillAxisSchema).length(4),
+  skillAxes: z.array(skillAxisSchema).length(5),
   services: z.array(serviceSchema).min(1),
   footer: z.object({
     note: z.string(),

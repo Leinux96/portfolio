@@ -23,7 +23,7 @@ export const en: SiteContent = siteContentSchema.parse({
       'I build and modernize production software end-to-end: React Native apps in the field, React 19 web frontends, Java microservices, and the AWS platform underneath — without breaking what is already running.',
     stats: [
       { value: '7+', label: 'years in production software' },
-      { value: '6+', label: 'mobile apps shipped to production' },
+      { value: '650', label: 'retail stores on a platform I ran end-to-end' },
       { value: '12', label: 'Kubernetes releases owned on EKS' },
     ],
     ctaPrimary: 'See the work',
@@ -49,9 +49,9 @@ export const en: SiteContent = siteContentSchema.parse({
     },
     skills: {
       kicker: 'Skills',
-      title: 'Four axes, one stack',
+      title: 'Four technical axes — plus the one that ships them',
       intro:
-        'Most fullstack engineers cover two of these. I work across all four daily.',
+        'Most fullstack engineers cover two of these. I work across all four daily — and I can run the delivery process around them when the team needs it.',
     },
     services: {
       kicker: 'Services',
@@ -72,10 +72,10 @@ export const en: SiteContent = siteContentSchema.parse({
   caseStudies: [
     {
       id: 'legacy-rewrite',
-      kicker: 'Legacy modernization',
+      kicker: 'Legacy modernization · product ownership',
       title: 'Rewriting a live backoffice without stopping the business',
       context:
-        'The web backoffice for a major Italian retail cooperative (Conad Nord Ovest) ran on Create React App, React 16, MUI v4 and untyped JavaScript — hard to change, harder to hire for.',
+        'The web backoffice for a major Italian retail cooperative (Conad Nord Ovest) ran on Create React App, React 16, MUI v4 and untyped JavaScript — hard to change, harder to hire for. For a year I ran this product alone — engineering and product decisions — serving 650 stores.',
       problem:
         'The product needed new features weekly. A big-bang rewrite would freeze delivery for months; staying on the legacy stack made every feature slower and riskier.',
       approach: [
@@ -87,6 +87,7 @@ export const en: SiteContent = siteContentSchema.parse({
         'A typed, testable codebase the team can actually hire for.',
         'New listing screens go from days to hours thanks to the generic DataTable and route conventions.',
         'Zero production downtime during the migration.',
+        'Owned product and delivery solo for a year: roadmap, priorities and releases for 650 stores.',
       ],
       stack: [
         'TanStack Start',
@@ -300,6 +301,19 @@ export const en: SiteContent = siteContentSchema.parse({
         'OpenTelemetry, SigNoz, custom dashboards',
         'CodePipeline, Bitbucket Pipelines, GitHub Actions',
         'CloudFront, S3, RDS, ElastiCache',
+      ],
+    },
+    {
+      id: 'product',
+      name: 'Product & Delivery',
+      blurb:
+        'Not a certification collector: roles I held because the product needed them.',
+      items: [
+        'Product ownership \u2014 ran BS-Conad solo for a year (650 stores): roadmap, priorities, releases',
+        'Scrum Master (current) \u2014 facilitation without slowing engineers down',
+        'Stakeholder management with enterprise retail clients (GDO)',
+        'Discovery \u2192 spec \u2192 delivery: written specs, ADRs, engineering docs',
+        'Backlog triage informed by production data (traces, Sentry, support)',
       ],
     },
   ],
