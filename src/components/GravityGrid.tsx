@@ -49,6 +49,10 @@ export default function GravityGrid() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       width = window.innerWidth
       height = window.innerHeight
+      // Explicit CSS size so buffer and element match 1:1 (inset-0 alone
+      // excludes the scrollbar and would stretch the canvas horizontally).
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
       canvas.width = Math.round(width * dpr)
       canvas.height = Math.round(height * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
@@ -117,8 +121,8 @@ export default function GravityGrid() {
     }
 
     const loop = () => {
-      sx += (mx - sx) * 0.14
-      sy += (my - sy) * 0.14
+      sx += (mx - sx) * 0.55
+      sy += (my - sy) * 0.55
       strength += (targetStrength - strength) * 0.07
 
       draw()
@@ -208,7 +212,7 @@ export default function GravityGrid() {
     <canvas
       ref={canvasRef}
       aria-hidden
-      className="pointer-events-none fixed inset-0 -z-10"
+      className="pointer-events-none fixed left-0 top-0 -z-10"
     />
   )
 }
