@@ -13,28 +13,29 @@ export default function Skills({ locale }: { locale: Locale }) {
         <SectionHeading kicker={s.kicker} title={s.title} intro={s.intro} />
       </Reveal>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div>
         {t.skillAxes.map((axis, i) => (
-          <Reveal key={axis.id} delay={i * 100} className="card glow-card p-6">
-            <div className="flex items-baseline gap-3">
-              <span className="mono text-xs text-[var(--ink-faint)]">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="m-0 text-lg font-bold tracking-tight text-[var(--ink)]">
-                {axis.name}
-              </h3>
+          <Reveal key={axis.id} delay={i * 80}>
+            <div className="spec-row">
+              <div>
+                <div className="flex items-baseline gap-3">
+                  <span className="mono text-xs text-[var(--accent)]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="m-0 text-base font-bold tracking-tight text-[var(--ink)]">
+                    {axis.name}
+                  </h3>
+                </div>
+                <p className="m-0 mt-1.5 text-sm leading-relaxed text-[var(--ink-soft)]">
+                  {axis.blurb}
+                </p>
+              </div>
+              <ul className="spec-items m-0 list-none p-0">
+                {axis.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
-            <p className="mt-2 text-sm text-[var(--accent)]">{axis.blurb}</p>
-            <ul className="m-0 mt-4 flex list-none flex-col gap-1.5 p-0">
-              {axis.items.map((item) => (
-                <li
-                  key={item}
-                  className="mono text-[0.8rem] leading-relaxed text-[var(--ink-soft)]"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
           </Reveal>
         ))}
       </div>

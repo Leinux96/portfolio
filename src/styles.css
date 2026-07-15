@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -81,6 +81,7 @@
 @theme inline {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -410,56 +411,402 @@ a {
   border-color: rgba(248, 113, 113, 0.4);
 }
 
-/* Case study rail */
-.case-rail {
+/* ------------------------------------------------------------------ */
+/* Case studies as audit dossiers (the HACCP/regulatory world I ship in) */
+
+.dossier {
   position: relative;
-  padding-left: 3.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(170deg, var(--panel-strong), var(--panel));
+  overflow: hidden;
+  transition: border-color 180ms ease;
 }
 
-.case-rail::before {
+.dossier:hover {
+  border-color: var(--accent-line);
+}
+
+/* Perforation strip, like a filed document */
+.dossier::before {
   content: '';
   position: absolute;
-  left: 1.05rem;
-  top: 0.4rem;
-  bottom: 0.4rem;
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    var(--accent-line),
-    var(--line) 55%,
-    transparent
+  top: 0;
+  bottom: 0;
+  left: 14px;
+  width: 5px;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--line-strong) 1.6px,
+    transparent 2px
+  );
+  background-size: 5px 18px;
+  background-repeat: repeat-y;
+  opacity: 0.7;
+}
+
+.dossier-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem 0.6rem 2.2rem;
+  border-bottom: 1px dashed var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  background: var(--panel);
+}
+
+.dossier-head b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dossier-body {
+  padding: 1.5rem 1.5rem 1.6rem 2.2rem;
+}
+
+@media (min-width: 640px) {
+  .dossier-body {
+    padding: 2rem 2rem 2.1rem 2.6rem;
+  }
+}
+
+.stamp {
+  flex-shrink: 0;
+  transform: rotate(-3deg);
+  border: 1.5px solid var(--accent-line);
+  border-radius: 5px;
+  padding: 0.14rem 0.5rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/* Personal projects: each card lives in its own world                 */
+
+.proj-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--pj-line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow: hidden;
+  background:
+    var(--pj-bg-art, none),
+    linear-gradient(170deg, var(--panel-strong), var(--panel));
+  transition: border-color 200ms ease;
+}
+
+.proj-card:hover {
+  border-color: var(--pj-accent);
+}
+
+.proj-tag {
+  color: var(--pj-accent);
+}
+
+.proj-card .chip:hover {
+  border-color: var(--pj-accent);
+}
+
+/* — Ouroboros: jade & ember, the eternal loop — */
+.proj-ouroboros {
+  --pj-accent: #0d9488;
+  --pj-gold: #b45309;
+  --pj-line: rgba(13, 148, 136, 0.3);
+  --pj-soft: rgba(13, 148, 136, 0.09);
+  --pj-bg-art: radial-gradient(
+    340px 220px at 100% 0%,
+    var(--pj-soft),
+    transparent 70%
   );
 }
 
-.case-item {
-  position: relative;
+.dark .proj-ouroboros {
+  --pj-accent: #5eead4;
+  --pj-gold: #fbbf24;
+  --pj-line: rgba(94, 234, 212, 0.22);
+  --pj-soft: rgba(45, 212, 191, 0.08);
 }
 
-.case-marker {
+.ouro-ring {
   position: absolute;
-  left: -3.2rem;
-  top: 1.4rem;
-  width: 2.1rem;
-  height: 2.1rem;
+  top: -34px;
+  right: -34px;
+  width: 130px;
+  height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.66rem;
-  font-weight: 600;
-  color: var(--accent);
-  border: 1px solid var(--accent-line);
+  border: 1.5px dashed var(--pj-line);
   border-radius: 999px;
-  background: var(--bg);
-  z-index: 1;
+  pointer-events: none;
+  animation: ouro-spin 26s linear infinite;
 }
 
-@media (max-width: 640px) {
-  .case-rail {
-    padding-left: 0;
+.ouro-ring::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid var(--pj-soft);
+  border-radius: 999px;
+}
+
+.ouro-ring span {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--pj-accent);
+  opacity: 0.65;
+  animation: ouro-spin 26s linear infinite reverse;
+}
+
+.xp-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--panel-strong);
+  border: 1px solid var(--pj-line);
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pj-accent), var(--pj-gold));
+}
+
+.reveal-visible .xp-fill {
+  animation: xp-grow 1.4s cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+}
+
+/* — Recovery Companion: clinical calm — */
+.proj-addiction {
+  --pj-accent: #0369a1;
+  --pj-line: rgba(3, 105, 161, 0.28);
+  --pj-soft: rgba(3, 105, 161, 0.07);
+  --pj-bg-art: radial-gradient(
+    340px 220px at 0% 0%,
+    var(--pj-soft),
+    transparent 70%
+  );
+  border-radius: 22px;
+}
+
+.dark .proj-addiction {
+  --pj-accent: #7dd3fc;
+  --pj-line: rgba(125, 211, 252, 0.2);
+  --pj-soft: rgba(125, 211, 252, 0.07);
+}
+
+.ecg {
+  color: var(--pj-accent);
+  opacity: 0.75;
+}
+
+.ecg path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+}
+
+.reveal-visible .ecg path {
+  animation: ecg-draw 2.4s ease-out 250ms both;
+}
+
+.breath {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--pj-accent);
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+/* — Babayaga: the esoteric one — */
+.proj-babayaga {
+  --pj-accent: #7c3aed;
+  --pj-gold: #a16207;
+  --pj-line: rgba(124, 58, 237, 0.28);
+  --pj-soft: rgba(124, 58, 237, 0.07);
+  --pj-bg-art: radial-gradient(
+    340px 240px at 50% 0%,
+    var(--pj-soft),
+    transparent 72%
+  );
+}
+
+.dark .proj-babayaga {
+  --pj-accent: #c4b5fd;
+  --pj-gold: #d4b06a;
+  --pj-line: rgba(196, 181, 253, 0.22);
+  --pj-soft: rgba(139, 92, 246, 0.12);
+  --pj-bg-art:
+    radial-gradient(1.2px 1.2px at 18% 22%, rgba(230, 220, 255, 0.55), transparent 100%),
+    radial-gradient(1px 1px at 68% 12%, rgba(230, 220, 255, 0.4), transparent 100%),
+    radial-gradient(1.4px 1.4px at 86% 38%, rgba(212, 176, 106, 0.5), transparent 100%),
+    radial-gradient(1px 1px at 38% 8%, rgba(230, 220, 255, 0.35), transparent 100%),
+    radial-gradient(1px 1px at 55% 30%, rgba(230, 220, 255, 0.3), transparent 100%),
+    radial-gradient(360px 260px at 50% 0%, rgba(139, 92, 246, 0.14), transparent 72%);
+}
+
+/* Tarot inner frame */
+.proj-babayaga::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--pj-line);
+  border-radius: 11px;
+  pointer-events: none;
+}
+
+.baba-sigil {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--pj-gold);
+  letter-spacing: 0.3em;
+  pointer-events: none;
+  animation: sigil-glow 5s ease-in-out infinite;
+}
+
+.baba-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Skills as a spec sheet, services as a rate card                     */
+
+.spec-row {
+  display: grid;
+  gap: 0.7rem;
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0.2rem;
+}
+
+@media (min-width: 768px) {
+  .spec-row {
+    grid-template-columns: 230px 1fr;
+    gap: 2.5rem;
   }
-  .case-rail::before,
-  .case-marker {
-    display: none;
+}
+
+.spec-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-items {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.55rem;
+  row-gap: 0.45rem;
+  align-items: baseline;
+}
+
+.spec-items li {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  transition: color 150ms ease;
+}
+
+.spec-items li:hover {
+  color: var(--ink);
+}
+
+.spec-items li + li::before {
+  content: '·';
+  margin-right: 0.55rem;
+  color: var(--ink-faint);
+}
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 3.6rem 1fr;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding: 1.5rem 0.2rem;
+  transition: background-color 180ms ease;
+}
+
+.svc-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.svc-row:hover {
+  background: var(--panel);
+}
+
+.svc-num {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink-faint);
+  transition: -webkit-text-stroke-color 180ms ease;
+}
+
+.svc-row:hover .svc-num {
+  -webkit-text-stroke-color: var(--accent);
+}
+
+@keyframes ouro-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes xp-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 68%;
+  }
+}
+
+@keyframes ecg-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.75);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes sigil-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -489,5 +836,19 @@ a {
   .btn:hover,
   .card:hover {
     transform: none;
+  }
+  .ouro-ring,
+  .ouro-ring span,
+  .breath,
+  .baba-sigil {
+    animation: none;
+  }
+  .reveal-visible .xp-fill {
+    animation: none;
+    width: 68%;
+  }
+  .reveal-visible .ecg path {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
