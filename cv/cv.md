@@ -2,7 +2,7 @@
 
 **Senior Fullstack Engineer · Mobile-first (React Native / Expo) + Cloud-native backend**
 
-📧 [leonardo.chiaramonti@biorsaf.it](mailto:leonardo.chiaramonti@biorsaf.it) · [github.com/Leinux96](https://github.com/Leinux96) · [leonardochiaramonti.is-a.dev](https://leonardochiaramonti.is-a.dev) · Italia (remoto)
+📧 [leochiaramonti@gmail.com](mailto:leochiaramonti@gmail.com) · [github.com/Leinux96](https://github.com/Leinux96) · [leonardochiaramonti.is-a.dev](https://leonardochiaramonti.is-a.dev) · Italia (remoto)
 
 ---
 
