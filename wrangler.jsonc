@@ -1,0 +1,10 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2026-07-15",
+  // Fully prerendered site: serve static assets only, no server Worker needed.
+  "assets": {
+    "directory": ".output/public",
+    "not_found_handling": "single-page-application",
+  },
+}
