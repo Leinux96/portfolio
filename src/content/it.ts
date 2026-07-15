@@ -75,7 +75,7 @@ export const it: SiteContent = siteContentSchema.parse({
       kicker: 'Modernizzazione legacy · product ownership',
       title: 'Riscrivere un backoffice live senza fermare il business',
       context:
-        'Il backoffice web di una grande cooperativa retail italiana (Conad Nord Ovest) girava su Create React App, React 16, MUI v4 e JavaScript non tipizzato — difficile da evolvere, ancora più difficile trovarci sviluppatori. Per un anno ho gestito questo prodotto da solo — decisioni di ingegneria e di prodotto — al servizio di 650 punti vendita.',
+        'Il backoffice web di una grande cooperativa retail italiana (Conad Nord Ovest) girava su Create React App, React 16, MUI v4 e JavaScript non tipizzato — difficile da evolvere, ancora più difficile trovarci sviluppatori. Per un anno ho gestito questo prodotto da solo — decisioni di ingegneria e di prodotto — al servizio di 650 punti vendita e ~300k\u20AC/anno di fatturato da solo.',
       problem:
         'Il prodotto richiedeva feature nuove ogni settimana. Un rewrite big-bang avrebbe congelato la delivery per mesi; restare sullo stack legacy rendeva ogni feature più lenta e rischiosa.',
       approach: [
@@ -87,7 +87,7 @@ export const it: SiteContent = siteContentSchema.parse({
         'Una codebase tipizzata e testabile su cui il team può davvero assumere.',
         'Le nuove schermate di listing passano da giorni a ore grazie alla DataTable generica e alle convenzioni di routing.',
         'Zero downtime in produzione durante la migrazione.',
-        'Prodotto e delivery gestiti da solo per un anno: roadmap, priorità e release per 650 punti vendita.',
+        'Prodotto e delivery gestiti da solo per un anno: roadmap, priorità e release per 650 punti vendita — un prodotto che da solo vale ~300k\u20AC/anno.',
       ],
       stack: [
         'TanStack Start',
@@ -308,7 +308,8 @@ export const it: SiteContent = siteContentSchema.parse({
       blurb:
         'Non colleziono certificazioni: ruoli che ho coperto perché il prodotto ne aveva bisogno.',
       items: [
-        'Product ownership \u2014 BS-Conad gestito da solo per un anno (650 punti vendita): roadmap, priorità, release',
+        'Product Owner (parentesi a livello azienda) \u2014 coordinato un team di 10+ persone: assegnazione attività, priorità, continuando a sviluppare sui progetti comuni',
+        'BS-Conad gestito in completa autonomia per un anno \u2014 prodotto + sviluppo, 650 punti vendita, ~300k\u20AC/anno di fatturato',
         'Scrum Master (attuale) \u2014 facilitazione senza rallentare chi sviluppa',
         'Gestione stakeholder con clienti enterprise retail (GDO)',
         'Discovery \u2192 spec \u2192 delivery: specifiche scritte, ADR, doc di engineering',

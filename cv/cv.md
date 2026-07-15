@@ -1,6 +1,6 @@
 # Leonardo Chiaramonti
 
-**Senior Fullstack Engineer · Mobile-first (React Native / Expo) + Cloud-native backend**
+**Senior Product Engineer · Mobile-first fullstack (React Native / Expo) + Cloud-native backend**
 
 📧 [leochiaramonti@gmail.com](mailto:leochiaramonti@gmail.com) · [github.com/Leinux96](https://github.com/Leinux96) · [leonardochiaramonti.is-a.dev](https://leonardochiaramonti.is-a.dev) · Italia (remoto)
 
@@ -14,6 +14,8 @@ Lavoro su tutto lo stack: dal componente UI mobile fino al ServiceAccount IRSA c
 
 Pragmatico, allergico al codice "fancy" che non risolve un problema reale, abituato a lavorare in team distribuiti, code review serrate e merge protette su `main`.
 
+Oltre al codice, copro i ruoli di prodotto e processo quando il team ne ha bisogno: una parentesi da **Product Owner a livello azienda** (coordinamento di un team di 10+ persone — assegnazione attività e priorità — continuando a sviluppare sui progetti comuni), oggi **Scrum Master**. Per un anno ho gestito **BS-Conad in completa autonomia** — prodotto e sviluppo — al servizio di **650 punti vendita** e **~300k€/anno di fatturato**.
+
 ---
 
 ## Esperienza
@@ -24,10 +26,11 @@ Pragmatico, allergico al codice "fancy" che non risolve un problema reale, abitu
 
 Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, audit interni e compliance IoT** per grandi clienti GDO (Conad Nord Ovest, Carrefour, brand food enterprise). L'ecosistema include più app mobile (B2B field), backoffice web, microservizi Java, microfrontend in Module Federation e una piattaforma infrastrutturale multi-account su AWS.
 
-**Ruolo trasversale fullstack** sui prodotti chiave del gruppo:
+**Ruolo trasversale fullstack** sui prodotti chiave del gruppo, più una parentesi da **Product Owner** (team di 10+ persone coordinato) e il ruolo attuale di **Scrum Master**:
 
 #### Conad Nord Ovest (BS-CONAD)
 
+- **Gestito in completa autonomia per un anno** — decisioni di prodotto e di sviluppo, roadmap, priorità e release per **650 punti vendita**; un prodotto che da solo vale **~300k€/anno di fatturato**.
 - **Riscritto da zero il backoffice web** da CRA + React 16 + MUI v4 + JS a stack moderno: **TanStack Start + React 19 + TanStack Router/Query/Table/Form + Zod v4 + shadcn/ui + Tailwind v4 + Vite 7**. Architettura SPA, file-based routing, Suspense + loader queries, Zustand per auth, axios con interceptors, search params come single source of truth per paginazione/sorting/filtri, generic `<DataTable>` server-side, design system Conad-brandizzato.
 - **App mobile in Expo + React Native** (Expo SDK 51, RN 0.74, React Navigation, react-native-paper, react-native-pdf, react-hook-form, react-query, Zustand, expo-camera, expo-notifications, expo-secure-store) con build EAS sia local sia cloud, doppio target dev/prod, distribuzione APK + App Store / Play Store.
 - **Backend Spring Boot 2.3 / Java 8** (monolite con ~150 servizi, JPA/Hibernate, Flyway). Contributi principali:
@@ -176,6 +179,7 @@ Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, au
 ## Soft skills
 
 - Ownership end-to-end: dal Figma al pod in produzione
+- Prodotto & delivery: PO a livello azienda (team 10+ coordinato), Scrum Master attuale, un prodotto da 650 PdV gestito in completa autonomia
 - Capacità di modernizzare prodotti legacy senza interrompere il business (rewrite Conad backoffice è il case più recente)
 - A mio agio sia in monolite Spring sia in microservizi + microfrontend
 - Code review costruttiva, allergico al "magic code" non motivato
@@ -186,7 +190,7 @@ Biorsaf sviluppa piattaforme SaaS verticali su **HACCP, sicurezza alimentare, au
 
 - **Lavoro:** remoto preferito, ibrido OK, full-time
 - **Trasferta:** valutabile per progetti specifici
-- **Ruoli di interesse:** Senior Fullstack, Mobile Lead (RN/Expo), Frontend Architect, Platform / Cloud Engineer
+- **Ruoli di interesse:** Senior Fullstack, Mobile Lead (RN/Expo), Frontend Architect, Platform / Cloud Engineer, Tech Lead / Product Engineer
 
 ---
 

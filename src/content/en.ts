@@ -75,7 +75,7 @@ export const en: SiteContent = siteContentSchema.parse({
       kicker: 'Legacy modernization · product ownership',
       title: 'Rewriting a live backoffice without stopping the business',
       context:
-        'The web backoffice for a major Italian retail cooperative (Conad Nord Ovest) ran on Create React App, React 16, MUI v4 and untyped JavaScript — hard to change, harder to hire for. For a year I ran this product alone — engineering and product decisions — serving 650 stores.',
+        'The web backoffice for a major Italian retail cooperative (Conad Nord Ovest) ran on Create React App, React 16, MUI v4 and untyped JavaScript — hard to change, harder to hire for. For a year I ran this product alone — engineering and product decisions — serving 650 stores and ~\u20AC300k/yr of revenue on its own.',
       problem:
         'The product needed new features weekly. A big-bang rewrite would freeze delivery for months; staying on the legacy stack made every feature slower and riskier.',
       approach: [
@@ -87,7 +87,7 @@ export const en: SiteContent = siteContentSchema.parse({
         'A typed, testable codebase the team can actually hire for.',
         'New listing screens go from days to hours thanks to the generic DataTable and route conventions.',
         'Zero production downtime during the migration.',
-        'Owned product and delivery solo for a year: roadmap, priorities and releases for 650 stores.',
+        'Owned product and delivery solo for a year: roadmap, priorities and releases for 650 stores — a product worth ~\u20AC300k/yr on its own.',
       ],
       stack: [
         'TanStack Start',
@@ -309,7 +309,8 @@ export const en: SiteContent = siteContentSchema.parse({
       blurb:
         'Not a certification collector: roles I held because the product needed them.',
       items: [
-        'Product ownership \u2014 ran BS-Conad solo for a year (650 stores): roadmap, priorities, releases',
+        'Product Owner (company-wide stint) \u2014 coordinated a 10+ person team: assigned work, set priorities, kept shipping code on shared projects',
+        'Ran BS-Conad completely solo for a year \u2014 product + engineering, 650 stores, ~\u20AC300k/yr revenue',
         'Scrum Master (current) \u2014 facilitation without slowing engineers down',
         'Stakeholder management with enterprise retail clients (GDO)',
         'Discovery \u2192 spec \u2192 delivery: written specs, ADRs, engineering docs',
