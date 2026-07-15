@@ -128,19 +128,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Blueprint grid drawn by GravityGrid canvas; faint lines stay in CSS */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -2;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.55;
-}
+/* Blueprint grid is drawn by the GravityGrid canvas (deforms around cursor) */
 
 /* Accent glow, top of page */
 body::after {
