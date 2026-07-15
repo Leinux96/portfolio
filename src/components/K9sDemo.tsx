@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '#/lib/utils'
 
 type PodName = 'auth' | 'payments' | 'copilot' | 'iot-compliance'
@@ -62,14 +62,33 @@ const LOGS: Record<PodName, string[]> = {
   ],
 }
 
+const RESTART_ID = 'copilot-e4c1d2'
+
+const RESTART_LOGS = [
+  'INFO  Starting CopilotApplication v2.4.1 — heap 1024m → 2048m',
+  'INFO  Spring AI initialized (provider: anthropic)',
+  'INFO  VectorCache warmed — 48k embeddings loaded',
+  'INFO  readiness probe ok',
+  'INFO  ✓ started in 6.2s — 0 restarts',
+]
+
 export default function K9sDemo() {
   const [pods, setPods] = useState(INITIAL_PODS)
   const [cursor, setCursor] = useState(2)
   const [view, setView] = useState<'list' | 'logs'>('list')
   const [fixed, setFixed] = useState(false)
+  const [streamed, setStreamed] = useState(0)
+  const streamTimer = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (streamTimer.current) clearInterval(streamTimer.current)
+    }
+  }, [])
 
   const selected = pods[cursor]
   const crashing = selected.status === 'CrashLoopBackOff'
+  const streaming = fixed && streamed < RESTART_LOGS.length
 
   function move(delta: number) {
     setView('list')
@@ -83,23 +102,43 @@ export default function K9sDemo() {
   function fix() {
     if (!crashing || fixed) return
     setFixed(true)
-    setView('list')
+    // New instance: fresh id, restart counter reset, follows the logs live.
     setPods((prev) =>
       prev.map((p) =>
         p.name === 'copilot'
-          ? { ...p, status: 'ContainerCreating', ready: '0/1' }
+          ? {
+              ...p,
+              id: RESTART_ID,
+              status: 'ContainerCreating',
+              ready: '0/1',
+              restarts: 0,
+            }
           : p,
       ),
     )
-    setTimeout(() => {
-      setPods((prev) =>
-        prev.map((p) =>
-          p.name === 'copilot'
-            ? { ...p, status: 'Running', ready: '1/1', restarts: 0 }
-            : p,
-        ),
-      )
-    }, 1400)
+    setCursor(pods.findIndex((p) => p.name === 'copilot'))
+    setView('logs')
+
+    streamTimer.current = setInterval(() => {
+      setStreamed((n) => {
+        const next = n + 1
+        // Readiness probe passes -> pod flips to Running.
+        if (next === 4) {
+          setPods((prev) =>
+            prev.map((p) =>
+              p.name === 'copilot'
+                ? { ...p, status: 'Running', ready: '1/1' }
+                : p,
+            ),
+          )
+        }
+        if (next >= RESTART_LOGS.length && streamTimer.current) {
+          clearInterval(streamTimer.current)
+          streamTimer.current = null
+        }
+        return next
+      })
+    }, 650)
   }
 
   function onKeyDown(e: React.KeyboardEvent) {
@@ -191,7 +230,10 @@ export default function K9sDemo() {
           </div>
         ) : (
           <div className="px-2 pt-1">
-            {LOGS[selected.name].map((line) => (
+            {(selected.name === 'copilot' && fixed
+              ? RESTART_LOGS.slice(0, streamed)
+              : LOGS[selected.name]
+            ).map((line) => (
               <p
                 key={line}
                 className={cn(
@@ -200,12 +242,17 @@ export default function K9sDemo() {
                     ? 'text-red-400'
                     : line.startsWith('WARN')
                       ? 'text-amber-400'
-                      : 'text-[var(--ink-soft)]',
+                      : line.includes('✓')
+                        ? 'text-[var(--accent)]'
+                        : 'text-[var(--ink-soft)]',
                 )}
               >
                 {line}
               </p>
             ))}
+            {selected.name === 'copilot' && streaming ? (
+              <p className="m-0 animate-pulse text-[var(--accent)]">▊</p>
+            ) : null}
           </div>
         )}
       </div>
@@ -231,7 +278,7 @@ export default function K9sDemo() {
             <span>r</span> restart w/ more heap
           </button>
         ) : null}
-        {allGreen && fixed ? (
+        {allGreen && fixed && !streaming ? (
           <span className="text-[var(--accent)]">✓ prod is green again</span>
         ) : null}
       </div>
