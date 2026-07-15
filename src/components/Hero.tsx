@@ -1,6 +1,6 @@
 import CountUp from './CountUp'
+import K9sDemo from './K9sDemo'
 import PhoneDemo from './PhoneDemo'
-import TerminalDemo from './TerminalDemo'
 import { getContent } from '#/lib/i18n'
 import type { Locale } from '#/content/schema'
 
@@ -45,16 +45,11 @@ export default function Hero({ locale }: { locale: Locale }) {
           </dl>
         </div>
 
-        <div className="hidden flex-col items-center gap-4 lg:flex">
-          <div className="relative">
-            <PhoneDemo />
-            <div className="absolute -bottom-6 -left-28 w-56">
-              <TerminalDemo />
-            </div>
+        <div className="hidden flex-col items-center gap-6 lg:flex">
+          <PhoneDemo />
+          <div className="w-full max-w-90">
+            <K9sDemo />
           </div>
-          <p className="mono mt-8 max-w-60 text-center text-[0.62rem] leading-relaxed text-[var(--ink-faint)]">
-            {t.hero.demoCaption}
-          </p>
         </div>
       </div>
     </section>

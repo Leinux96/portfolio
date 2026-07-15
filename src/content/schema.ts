@@ -63,7 +63,6 @@ export const siteContentSchema = z.object({
     stats: z.array(statSchema).length(3),
     ctaPrimary: z.string(),
     ctaSecondary: z.string(),
-    demoCaption: z.string(),
   }),
   sections: z.object({
     work: z.object({

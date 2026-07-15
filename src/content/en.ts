@@ -28,8 +28,6 @@ export const en: SiteContent = siteContentSchema.parse({
     ],
     ctaPrimary: 'See the work',
     ctaSecondary: 'Get in touch',
-    demoCaption:
-      'Not a screenshot — live React components, same code as this site.',
   },
   sections: {
     work: {
