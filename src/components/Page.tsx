@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import GravityGrid from './GravityGrid'
 import Header from './Header'
 import Footer from './Footer'
 import Hero from './Hero'
@@ -26,6 +27,7 @@ export default function Page({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <GravityGrid />
       <Header locale={locale} />
       <main className="page-wrap">
         <Hero locale={locale} />
