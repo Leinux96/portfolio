@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import { getContent } from '#/lib/i18n'
 import type { Locale } from '#/content/schema'
@@ -9,11 +10,17 @@ export default function Projects({ locale }: { locale: Locale }) {
 
   return (
     <section id="projects" className="scroll-mt-24 pt-16">
-      <SectionHeading kicker={s.kicker} title={s.title} intro={s.intro} />
+      <Reveal>
+        <SectionHeading kicker={s.kicker} title={s.title} intro={s.intro} />
+      </Reveal>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {t.projects.map((project) => (
-          <article key={project.id} className="card flex flex-col p-6">
+        {t.projects.map((project, i) => (
+          <Reveal
+            key={project.id}
+            delay={i * 120}
+            className="card glow-card flex flex-col p-6"
+          >
             <h3 className="m-0 text-lg font-bold tracking-tight text-[var(--ink)]">
               {project.name}
             </h3>
@@ -38,7 +45,7 @@ export default function Projects({ locale }: { locale: Locale }) {
             </ul>
             <div className="mt-4 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
-                <span key={tech} className="chip">
+                <span key={tech} className="chip chip-hover">
                   {tech}
                 </span>
               ))}
@@ -60,7 +67,7 @@ export default function Projects({ locale }: { locale: Locale }) {
                 </span>
               )}
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>

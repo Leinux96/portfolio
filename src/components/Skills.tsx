@@ -1,3 +1,4 @@
+import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import { getContent } from '#/lib/i18n'
 import type { Locale } from '#/content/schema'
@@ -8,11 +9,13 @@ export default function Skills({ locale }: { locale: Locale }) {
 
   return (
     <section id="skills" className="scroll-mt-24 pt-16">
-      <SectionHeading kicker={s.kicker} title={s.title} intro={s.intro} />
+      <Reveal>
+        <SectionHeading kicker={s.kicker} title={s.title} intro={s.intro} />
+      </Reveal>
 
       <div className="grid gap-6 sm:grid-cols-2">
         {t.skillAxes.map((axis, i) => (
-          <div key={axis.id} className="card p-6">
+          <Reveal key={axis.id} delay={i * 100} className="card glow-card p-6">
             <div className="flex items-baseline gap-3">
               <span className="mono text-xs text-[var(--ink-faint)]">
                 {String(i + 1).padStart(2, '0')}
@@ -32,7 +35,7 @@ export default function Skills({ locale }: { locale: Locale }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

@@ -1,0 +1,35 @@
+import { useEffect, useRef, useState } from 'react'
+
+export function prefersReducedMotion(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+}
+
+export function useInView<T extends HTMLElement>(threshold = 0.15) {
+  const ref = useRef<T>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (prefersReducedMotion()) {
+      setInView(true)
+      return
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setInView(true)
+          observer.disconnect()
+        }
+      },
+      { threshold },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, inView }
+}

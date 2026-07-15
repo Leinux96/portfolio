@@ -1,4 +1,5 @@
 import { FileDown, Github, Linkedin, Mail } from 'lucide-react'
+import Reveal from './Reveal'
 import { getContent } from '#/lib/i18n'
 import { site } from '#/content/site'
 import type { Locale } from '#/content/schema'
@@ -9,7 +10,7 @@ export default function Contact({ locale }: { locale: Locale }) {
 
   return (
     <section id="contact" className="scroll-mt-24 pt-16">
-      <div className="card p-8 text-center sm:p-12">
+      <Reveal className="card glow-card p-8 text-center sm:p-12">
         <p className="kicker mb-3">{s.kicker}</p>
         <h2 className="m-0 text-3xl font-bold tracking-tight text-[var(--ink)] sm:text-4xl">
           {s.title}
@@ -48,7 +49,7 @@ export default function Contact({ locale }: { locale: Locale }) {
             {s.cvLabel}
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }
